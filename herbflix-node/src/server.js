@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./middlewares/auth');
 require('./mongo').default;
 require('dotenv').config();
 
