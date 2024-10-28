@@ -18,14 +18,14 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
         const user = await User
-            .findOne({ username })
+            .findOne({ email })
             .exec();
         if (!user) {
             return res
                 .status(400)
-                .send({ message: 'The username does not exist' });
+                .send({ message: 'The email does not exist' });
         }
         const valid = await user.comparePassword(password);
         if (!valid) {
